@@ -102,3 +102,8 @@ class PostgreSQLConnection:
             print("Usuário Atualizado")
         except psycopg2.Error as e:
             print("Não foi possível atualizar o usuário:", e)
+    
+    def close(self):
+        if self.conn:
+            self.conn.close()
+            print("Conexão encerrada")
